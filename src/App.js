@@ -7,6 +7,7 @@ import Album from "./components/Album";
 import Comprar from "./components/Comprar";
 import Home from "./components/Home";
 import { useState } from "react";
+import ComprarBD from "./components/ComprarBD";
 
 const initialAuth = null;
 
@@ -46,7 +47,8 @@ function App() {
           />
           <Route path="figuritas/*" element={<Repetidos auth={auth} />} />
           <Route path="album/*" element={<Album />} />
-          <Route path="quiosko/*" element={<Comprar />} />
+          {/*<Route path="quiosko/*" element={<Comprar />} />*/}
+          <Route path="quiosko/*" element={<ComprarBD />} />
         </Routes>
       </HashRouter>
     </div>

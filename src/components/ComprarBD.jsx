@@ -44,7 +44,7 @@ function pokemonAleatorio() {
   return numAle;
 }
 
-const Comprar = () => {
+const ComprarBD = () => {
   const [pokemons, setPokemon] = useState([]);
   const [comprar, setComprar] = useState(false);
   const [db, setDb] = useState(lista);
@@ -120,4 +120,4 @@ const Comprar = () => {
   );
 };
 
-export default Comprar;
+export default ComprarBD;

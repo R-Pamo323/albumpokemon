@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { dataDigitalBestSeller } from "../data";
-import Slider from "react-slick";
 import "../index.css";
 
 function capitalizarPrimeraLetra(str) {
