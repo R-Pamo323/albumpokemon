@@ -3,19 +3,19 @@
 export const helpHttp = () => {
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
-      accept: "application/json",
+      accept: "application/json", //estas peticiones de la cabecera JSON
     };
 
     const controller = new AbortController(); //CUANDO NO HAY RESPUESTA DEL servidor pueda abortarlo para no quedarnos ahi
-    options.signal = controller.signal;
+    options.signal = controller.signal; //por si la api no responde se puede cancelar la peticion.
 
     options.method = options.method || "GET";
-    options.headers = options.headers
+    options.headers = options.headers //lo que hacemos es mezclar las cabeceras que tenemos mas la cabeceras que nos envia el usuario
       ? { ...defaultHeader, ...options.headers }
-      : defaultHeader;
+      : defaultHeader; //si es que no envia el usuario cabecera tenemos la de pordefecto que es la DE jsoN
 
-    options.body = JSON.stringify(options.body) || false;
-    if (!options.body) delete options.body;
+    options.body = JSON.stringify(options.body) || false; //Lo transformamos a cadena de texto
+    if (!options.body) delete options.body; //elimina el body si es que no se envia algo al body como un GET.
 
     //console.log(options);
     setTimeout(() => controller.abort(), 10000);
