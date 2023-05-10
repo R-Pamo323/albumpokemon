@@ -39,124 +39,7 @@ const Repetidos = ({ auth }) => {
       },
     ],
   };
-  /*
-  useEffect(() => {
-    let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        json.results.forEach((el) => {
-          fetch(el.url)
-            .then((res) => res.json())
-            .then((json) => {
-              let pokemon = {
-                id: json.id,
-                name: json.name,
-                sprites: json.sprites.front_default,
-                height: json.height,
-                weight: json.weight,
-                ability: json.abilities[0].ability.name,
-                type: json.types[0].type.name,
-              };
 
-              setPokemon((pokemons) => [...pokemons, pokemon]);
-            });
-        });
-      });
-  }, []);*/
-  /*
-  useEffect(() => {
-    const getPokemons = async (url) => {
-      let res = await fetch(url),
-        json = await res.json();
-      //console.log(json);
-
-      json.results.forEach(async (el) => {
-        let res = await fetch(el.url),
-          json = await res.json();
-        console.log(json);
-
-        let pokemon = {
-          id: json.id,
-          name: json.name,
-          sprites: json.sprites.front_default,
-          height: json.height,
-          weight: json.weight,
-          ability: json.abilities[0].ability.name,
-          type: json.types[0].type.name,
-        };
-
-        setPokemon((pokemons) => [...pokemons, pokemon]);
-      });
-    };
-
-    getPokemons("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151");
-  }, []);
-*/
-
-  /*
-  useEffect(() => {
-    const getPokemons = async (url) => {
-      let res = await fetch(url),
-        json = await res.json();
-      console.log(json);
-      let pokemon = {};
-      json.results.forEach(async (el) => {
-        for (let i = 0; i < lista.length; i++) {
-          if (el.name === lista[i]) {
-            let res = await fetch(el.url),
-              json = await res.json();
-            console.log(json);
-
-            pokemon = {
-              id: json.id,
-              name: json.name,
-              sprites: json.sprites.front_default,
-              height: json.height,
-              weight: json.weight,
-              ability: json.abilities[0].ability.name,
-              type: json.types[0].type.name,
-            };
-          }
-        }
-
-        setPokemon((pokemons) => [...pokemons, pokemon]);
-      });
-    };
-
-    getPokemons("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151");
-  }, []);
-*/
-  /*
-  useEffect(() => {
-    let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        json.results.forEach((el) => {
-          for (let i = 0; i < lista.length; i++) {
-            if (el.name === lista[i]) {
-              fetch(el.url)
-                .then((res) => res.json())
-                .then((json) => {
-                  let pokemon = {
-                    id: json.id,
-                    name: json.name,
-                    sprites: json.sprites.front_default,
-                    height: json.height,
-                    weight: json.weight,
-                    ability: json.abilities[0].ability.name,
-                    type: json.types[0].type.name,
-                  };
-
-                  setPokemon((pokemons) => [...pokemons, pokemon]);
-                });
-            }
-          }
-        });
-      });
-  }, []);
-*/
   let lista = [];
 
   if (auth) {
@@ -165,11 +48,6 @@ const Repetidos = ({ auth }) => {
     lista = [];
   }
 
-  //const lista = ["ditto", "bulbasaur", "pikachu", "blastoise"];
-  //const lista = ["ditto", "bulbasaur", "pikachu"];
-  //const lista = ["ditto", "bulbasaur"];
-  //const lista = ["ditto"];
-  //const lista = [];
   useEffect(() => {
     let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
     fetch(url)

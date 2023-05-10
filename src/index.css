@@ -138,11 +138,12 @@ p {
   background: black;
   border-radius: 8px;
   overflow: hidden;
-
   height: 700px;
   width: 320px;
   color: #fff;
   cursor: pointer;
+  position: relative;
+  z-index: 998;
 }
 
 .card-top h1 {
@@ -206,4 +207,11 @@ p {
   left: 0;
   right: 0;
   height: 2px;
+}
+
+.repetido {
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bold;
+  color: red;
 }

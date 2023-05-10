@@ -114,6 +114,12 @@ const ComprarBD = () => {
         .then((res) => res.json())
         .then((json) => {
           console.log(json);
+          let repetido = "";
+          for (let z = 0; z < db.length; z++) {
+            if (db[z].id == json.id) {
+              repetido = "REPETIDO";
+            }
+          }
           let pokemon = {
             id: json.id,
             name: json.name,
@@ -122,6 +128,7 @@ const ComprarBD = () => {
             weight: json.weight,
             ability: json.abilities[0].ability.name,
             type: json.types[0].type.name,
+            repetido: repetido,
           };
 
           setPokemon((pokemons) => [...pokemons, pokemon]);
@@ -162,6 +169,7 @@ const ComprarBD = () => {
               weight={el.weight}
               ability={el.ability}
               type={el.type}
+              repetido={el.repetido}
             />
           ))
         )}

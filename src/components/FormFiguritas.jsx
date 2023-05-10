@@ -4,6 +4,8 @@ function capitalizarPrimeraLetra(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+let repetido2 = "";
+
 const FormFiguritas = ({
   id,
   name,
@@ -12,6 +14,7 @@ const FormFiguritas = ({
   weight,
   type,
   ability,
+  repetido,
 }) => {
   if (!name || !sprites || !height || !weight || !type || !ability) return null;
 
@@ -35,6 +38,9 @@ const FormFiguritas = ({
           <p className="sombreado">TIPO</p>
           <p className="descripcion">{capitalizarPrimeraLetra(ability)}</p>
           <p className="descripcion">{capitalizarPrimeraLetra(type)}</p>
+        </div>
+        <div>
+          <p className="repetido">{repetido}</p>
         </div>
       </div>
     </div>

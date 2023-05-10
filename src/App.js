@@ -8,6 +8,7 @@ import Comprar from "./components/Comprar";
 import Home from "./components/Home";
 import { useState } from "react";
 import ComprarBD from "./components/ComprarBD";
+import Figuritas from "./components/Figuritas";
 
 const initialAuth = null;
 
@@ -45,7 +46,8 @@ function App() {
             path="/"
             element={<Home auth={auth} handleAuth={handleAuth} />}
           />
-          <Route path="figuritas/*" element={<Repetidos auth={auth} />} />
+          {/*<Route path="figuritas/*" element={<Repetidos auth={auth} />} />*/}
+          <Route path="figuritas/*" element={<Figuritas auth={auth} />} />
           <Route path="album/*" element={<Album />} />
           {/*<Route path="quiosko/*" element={<Comprar />} />*/}
           <Route path="quiosko/*" element={<ComprarBD />} />
