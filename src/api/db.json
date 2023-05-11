@@ -43,6 +43,22 @@
     {
       "id": 80,
       "name": "slowbro"
+    },
+    {
+      "id": 2,
+      "name": "ivysaur"
+    },
+    {
+      "id": 147,
+      "name": "dratini"
+    },
+    {
+      "id": 93,
+      "name": "haunter"
+    },
+    {
+      "id": 58,
+      "name": "growlithe"
     }
   ]
 }

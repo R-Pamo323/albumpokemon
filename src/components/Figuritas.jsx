@@ -5,9 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useEffect, useState } from "react";
 import FormFiguritas from "./FormFiguritas";
 import { helpHttp } from "../helpers/helpHttp";
+import Loader from "./Loader";
 
 const Figuritas = ({ auth }) => {
   const [pokemons, setPokemon] = useState([]);
+  const [comprar, setComprar] = useState(false);
+  const [btnActiveMostrarTodos, setBtnActiveMostrarTodos] = useState(true);
+
   let api = helpHttp();
   let urlPokemonsBD = "http://localhost:5000/pokemons";
 
@@ -46,29 +50,6 @@ const Figuritas = ({ auth }) => {
   };
 
   let lista = [];
-  let db2 = [
-    /*
-    {
-      id: 1,
-      name: "bulbasaur",
-    },
-    {
-      id: 9,
-      name: "blastoise",
-    },
-    {
-      id: 25,
-      name: "pikachu",
-    },
-    {
-      id: 132,
-      name: "ditto",
-    },
-    {
-      id: 143,
-      name: "snorlax",
-    },*/
-  ];
 
   if (auth) {
     lista = ["ditto", "bulbasaur", "pikachu", "blastoise", "snorlax"];
@@ -85,45 +66,16 @@ const Figuritas = ({ auth }) => {
       }
     });
     console.log(db);
+  }, []);
 
-    /*
-    let url = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151";
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        json.results.forEach((el) => {
-          for (let i = 0; i < lista.length; i++) {
-            if (el.name === lista[i]) {
-              fetch(el.url)
-                .then((res) => res.json())
-                .then((json) => {
-                  let pokemon = {
-                    id: json.id,
-                    name: json.name,
-                    sprites: json.sprites.front_default,
-                    height: json.height,
-                    weight: json.weight,
-                    ability: json.abilities[0].ability.name,
-                    type: json.types[0].type.name,
-                  };
-
-                  setPokemon((pokemons) => [...pokemons, pokemon]);
-                });
-            }
-          }
-        });*/
+  const mostrarTodos = (e) => {
+    e.preventDefault();
     for (let i = 0; i < db.length; i++) {
       let url = `https://pokeapi.co/api/v2/pokemon/${db[i].id}`;
       fetch(url)
         .then((res) => res.json())
         .then((json) => {
           console.log(json);
-          //json.forEach((el) => {
-          // for (let i = 0; i < lista.length; i++) {
-          //   if (el.name === lista[i]) {
-          // fetch(el.url)
-          //   .then((res) => res.json())
-          //   .then((json) => {
           let pokemon = {
             id: json.id,
             name: json.name,
@@ -135,9 +87,6 @@ const Figuritas = ({ auth }) => {
           };
 
           setPokemon((pokemons) => [...pokemons, pokemon]);
-          //     });
-          //   }
-          //  }
         });
     }
 
@@ -209,17 +158,22 @@ const Figuritas = ({ auth }) => {
 
       default:
         break;
-
-      // });
     }
-  }, []);
+    setComprar(true);
+  };
 
   return (
     <>
       <h2>Figuritas de Pokemon</h2>
+      <input
+        type="submit"
+        value="Mostrar Todos"
+        onClick={mostrarTodos}
+        disabled={!btnActiveMostrarTodos}
+      />
       <Slider {...settings}>
-        {pokemons.length === 1000 ? (
-          <h3>Cargando....</h3>
+        {comprar === false ? (
+          <Loader />
         ) : (
           pokemons.map((el) => (
             <FormFiguritas
