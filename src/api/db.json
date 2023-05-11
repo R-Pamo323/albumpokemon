@@ -59,6 +59,42 @@
     {
       "id": 58,
       "name": "growlithe"
+    },
+    {
+      "id": 30,
+      "name": "nidorina"
+    },
+    {
+      "id": 36,
+      "name": "clefable"
+    },
+    {
+      "id": 146,
+      "name": "moltres"
+    },
+    {
+      "id": 34,
+      "name": "nidoking"
+    },
+    {
+      "id": 57,
+      "name": "primeape"
+    },
+    {
+      "id": 22,
+      "name": "fearow"
+    },
+    {
+      "id": 139,
+      "name": "omastar"
+    },
+    {
+      "id": 55,
+      "name": "golduck"
+    },
+    {
+      "id": 87,
+      "name": "dewgong"
     }
   ]
 }

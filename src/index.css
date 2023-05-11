@@ -215,3 +215,77 @@ p {
   font-weight: bold;
   color: red;
 }
+
+/********************ALBUM FIGURITAS*******************/
+
+.album-pagina {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 80px 25px;
+  padding: 50px;
+}
+
+.figurita {
+  border: thin solid black;
+  height: 300px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+}
+
+.figurita img {
+  height: 300px;
+  width: 220px;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.figurita:nth-child(3) {
+  visibility: hidden;
+  border: thin solid transparent;
+  margin-right: 100px;
+  box-shadow: 0;
+}
+
+.intro {
+  height: 60px;
+  width: 240px;
+  padding: 6px;
+  box-sizing: border-box;
+  bottom: 530px;
+  position: absolute;
+  background: rgb(27, 27, 27, 0.5);
+  color: white;
+  transition: 0.5s;
+}
+
+.intro h1 {
+  margin: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.intro p {
+  font-size: 15px;
+  margin: 20px;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.figurita:hover {
+  cursor: pointer;
+}
+
+.figurita:hover .intro {
+  height: 160px;
+  bottom: 530px;
+  background: black;
+}
+.figurita:hover p {
+  opacity: 1;
+  visibility: visible;
+}
+
+.figurita:hover img {
+  transform: scale(1.1) rotate(-3deg);
+}
