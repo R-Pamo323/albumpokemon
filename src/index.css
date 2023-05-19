@@ -217,75 +217,83 @@ p {
 }
 
 /********************ALBUM FIGURITAS*******************/
-
 .album-pagina {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 80px 25px;
   padding: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .figurita {
-  border: thin solid black;
   height: 300px;
-  box-shadow: 5px 5px 20px black;
+  width: 250px;
   overflow: hidden;
+  border-radius: 20px;
+  border: 8px solid #fff;
+  position: relative;
 }
 
 .figurita img {
-  height: 300px;
-  width: 220px;
-  border-radius: 3px;
+  height: 100%;
+  width: 100%;
+  /*object-fit: cover;*/
+  border-radius: 15px;
   transition: 0.5s;
 }
 
-.figurita:nth-child(3) {
-  visibility: hidden;
-  border: thin solid transparent;
-  margin-right: 100px;
-  box-shadow: 0;
-}
-
-.intro {
-  height: 60px;
-  width: 240px;
-  padding: 6px;
-  box-sizing: border-box;
-  bottom: 530px;
+.card-body {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: -100%;
   position: absolute;
-  background: rgb(27, 27, 27, 0.5);
-  color: white;
-  transition: 0.5s;
+  color: #fff;
+  background: #1f3d4738;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 2s;
 }
 
-.intro h1 {
-  margin: 10px;
-  font-size: 30px;
-  text-align: center;
+.card-title {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 500;
+  padding-top: 20px;
 }
 
-.intro p {
-  font-size: 15px;
-  margin: 20px;
-  visibility: hidden;
-  opacity: 0;
+.card-sub-title {
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 300;
 }
 
-.figurita:hover {
-  cursor: pointer;
+.card-info {
+  font-size: 16px;
+  line-height: 25px;
+  margin: 10px 0;
+  font-weight: 400;
 }
 
-.figurita:hover .intro {
-  height: 160px;
-  bottom: 530px;
-  background: black;
-}
-.figurita:hover p {
-  opacity: 1;
-  visibility: visible;
+.figurita:hover .card-body {
+  right: 0;
 }
 
-.figurita:hover img {
-  transform: scale(1.1) rotate(-3deg);
+.fig-vacia {
+  font-size: 76px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  margin-left: 40px;
+  margin-right: 40px;
 }

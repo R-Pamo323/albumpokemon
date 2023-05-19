@@ -95,6 +95,50 @@
     {
       "id": 87,
       "name": "dewgong"
+    },
+    {
+      "id": 142,
+      "name": "aerodactyl"
+    },
+    {
+      "id": 61,
+      "name": "poliwhirl"
+    },
+    {
+      "id": 26,
+      "name": "raichu"
+    },
+    {
+      "id": 49,
+      "name": "venomoth"
+    },
+    {
+      "id": 125,
+      "name": "electabuzz"
+    },
+    {
+      "id": 12,
+      "name": "butterfree"
+    },
+    {
+      "id": 60,
+      "name": "poliwag"
+    },
+    {
+      "id": 116,
+      "name": "horsea"
+    },
+    {
+      "id": 3,
+      "name": "venusaur"
+    },
+    {
+      "id": 40,
+      "name": "wigglytuff"
+    },
+    {
+      "id": 95,
+      "name": "onix"
     }
   ]
 }
