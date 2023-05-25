@@ -222,9 +222,12 @@ p {
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, auto);
   gap: 80px 25px;
-  padding: 50px;
+  padding: 100px 100px 3px 100px;
   justify-content: center;
   align-items: center;
+  border: 10px solid #000;
+  /*background-image: url("../src/wallpapers/Poke5.jpg");*/
+  background-size: cover;
 }
 
 .figurita {
@@ -258,7 +261,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: 2s;
+  transition: 1.5s;
 }
 
 .card-title {

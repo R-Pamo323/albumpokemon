@@ -139,6 +139,22 @@
     {
       "id": 95,
       "name": "onix"
+    },
+    {
+      "id": 16,
+      "name": "pidgey"
+    },
+    {
+      "id": 78,
+      "name": "rapidash"
+    },
+    {
+      "id": 81,
+      "name": "magnemite"
+    },
+    {
+      "id": 86,
+      "name": "seel"
     }
   ]
 }

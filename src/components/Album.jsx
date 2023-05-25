@@ -6,6 +6,20 @@ import Loader from "./Loader";
 import FigAlbum from "./FigAlbum";
 import FigVacias from "./FigVacias";
 
+import Poke1 from "../wallpapers/Poke1.jpg";
+import Poke2 from "../wallpapers/Poke2.jpg";
+import Poke3 from "../wallpapers/Poke3.jpg";
+import Poke4 from "../wallpapers/Poke4.jpg";
+import Poke5 from "../wallpapers/Poke5.jpg";
+import Poke6 from "../wallpapers/Poke6.jpg";
+import Poke7 from "../wallpapers/Poke7.jpg";
+import Poke8 from "../wallpapers/Poke8.jpg";
+import Poke9 from "../wallpapers/Poke9.jpg";
+import Poke10 from "../wallpapers/Poke10.jpg";
+import Poke11 from "../wallpapers/Poke11.jpg";
+import Poke12 from "../wallpapers/Poke12.jpg";
+import Poke13 from "../wallpapers/Poke13.jpg";
+
 const Album = () => {
   const [pokemons, setPokemon] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -17,6 +31,8 @@ const Album = () => {
   const [btnSigPagina, setBtnSigPagina] = useState(true);
   const [btnAntPagina, setBtnAntPagina] = useState(false);
 
+  //Imagenes
+  const [fondo, setFondo] = useState(Poke1);
   //Pruebas de Figuras vacias
   const [figVacias, setFigVacias] = useState([]);
 
@@ -24,19 +40,6 @@ const Album = () => {
   let urlPokemonsBD = "http://localhost:5000/pokemons";
 
   const [db, setDb] = useState(null);
-  let lista1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  let lista2 = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
-  let lista3 = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
-  let lista4 = [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
-  let lista5 = [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60];
-  let lista6 = [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72];
-  let lista7 = [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84];
-  let lista8 = [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96];
-  let lista9 = [97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108];
-  let lista10 = [109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120];
-  let lista11 = [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132];
-  let lista12 = [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144];
-  let lista13 = [146, 147, 148, 149, 150, 151];
 
   let lista = [
     [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
@@ -51,7 +54,7 @@ const Album = () => {
     [109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
     [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132],
     [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144],
-    [146, 147, 148, 149, 150, 151],
+    [146, 147, 148, 149, 150, 151, 0, 0, 0, 0, 0, 151],
   ];
 
   //encontrar la forma de que recorrar el array de pokemons, porque no lo esta haciendo
@@ -69,8 +72,6 @@ const Album = () => {
     });
   }, []);
 
-  //recuerda que aca estas modificando por el numero pagina y vamos a probar al momento de pegar
-  //MIRAAAAAAA LO QUE FALTA ES SABER PORQUE SALE INDEFINIDO SI YA TINE UN VALOR LA OTRA MATRIZ ASI QUE DE ESO DEPENDE CASI TODO Y ARREGLAR QUE NO SE REPITA ACADARATO LOS NUMEROS
   useEffect(() => {
     if (db != null) {
       for (let i = 0; i < db.length; i++) {
@@ -79,9 +80,6 @@ const Album = () => {
           .then((res) => res.json())
           .then((json) => {
             console.log("Estoy entrando para ver si lee de nuevos los pkeoms");
-            let final = parseInt(lista[numPagina].length);
-            console.log(final);
-            console.log(lista[1][final]);
             for (
               let y = lista[numPagina - 1][0];
               y <= lista[numPagina - 1][11];
@@ -159,7 +157,6 @@ const Album = () => {
       }
     }
     setBtnPegarFiguras(false);
-    setPokemon([]);
   };
 
   const sigPagina = (e) => {
@@ -169,61 +166,110 @@ const Album = () => {
         setBtnAntPagina(true);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke2);
         break;
       case 2:
         setNumPagina(3);
         setBtnPegarFiguras(true);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke3);
         break;
       case 3:
         setNumPagina(4);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke4);
         break;
       case 4:
         setNumPagina(5);
         setBtnPegarFiguras(true);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke5);
         break;
       case 5:
         setNumPagina(6);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke6);
         break;
       case 6:
         setNumPagina(7);
         setBtnPegarFiguras(true);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke7);
         break;
       case 7:
         setNumPagina(8);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke8);
         break;
       case 8:
         setNumPagina(9);
         setBtnPegarFiguras(true);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke9);
         break;
       case 9:
         setNumPagina(10);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke10);
         break;
       case 10:
         setNumPagina(11);
         setBtnPegarFiguras(true);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke11);
         break;
       case 11:
         setNumPagina(12);
         setBtnPegarFiguras(true);
         setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke12);
         break;
       case 12:
         setNumPagina(13);
+        setBtnPegarFiguras(true);
         setBtnSigPagina(false);
         setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke13);
         break;
       default:
         break;
@@ -235,51 +281,111 @@ const Album = () => {
         setNumPagina(1);
         setBtnAntPagina(false);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke1);
         break;
       case 3:
         setNumPagina(2);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke2);
         break;
       case 4:
         setNumPagina(3);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke3);
         break;
       case 5:
         setNumPagina(4);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke4);
         break;
       case 6:
         setNumPagina(5);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke5);
         break;
       case 7:
         setNumPagina(6);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke6);
         break;
       case 8:
         setNumPagina(7);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke7);
         break;
       case 9:
         setNumPagina(8);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke8);
         break;
       case 10:
         setNumPagina(9);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke9);
         break;
       case 11:
         setNumPagina(10);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke10);
         break;
       case 12:
         setNumPagina(11);
         setBtnPegarFiguras(true);
+        setPegarPoke(true);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke11);
         break;
       case 13:
         setNumPagina(12);
         setBtnSigPagina(true);
         setBtnPegarFiguras(true);
+        setPegarPoke(false);
+        setPokemon([]);
+        setFigVacias([]);
+        setPoke([]);
+        setFondo(Poke12);
         break;
       default:
         break;
@@ -308,7 +414,10 @@ const Album = () => {
       />
 
       {loader && <Loader />}
-      <section className="album-pagina">
+      <section
+        className="album-pagina"
+        style={{ backgroundImage: `url(${fondo})` }}
+      >
         {btnPegarFiguras === true
           ? figVacias.map((el) => <FigVacias id={el.id} />)
           : poke.map((el) => (
